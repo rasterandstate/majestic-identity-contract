@@ -1,0 +1,124 @@
+{
+  "editionHash": [
+    {
+      "name": "single_region",
+      "movieId": 1,
+      "publisherKey": "criterion",
+      "format": "Blu-ray",
+      "packaging": "Steelbook",
+      "releaseDate": "2020-05-15",
+      "region": "A",
+      "expectedHash": "c69ad007f9f682d924ffe64074954c4fab05b9bf8dad0e74c8236dea3836db5d"
+    },
+    {
+      "name": "multi_region",
+      "movieId": 1,
+      "publisherKey": "criterion",
+      "format": "Blu-ray",
+      "packaging": "Steelbook",
+      "releaseDate": "2020-05-15",
+      "region": "A + B",
+      "expectedHash": "c29ba18d1c530cd6cc622f0e292c1c6cd95bf92f1cf0164e401e66ed689f8bc2"
+    },
+    {
+      "name": "no_disc",
+      "movieId": 1,
+      "publisherKey": "criterion",
+      "format": "Blu-ray",
+      "packaging": null,
+      "releaseDate": "2020-05-15",
+      "region": null,
+      "expectedHash": "f2295ad111f99013f0302dbddfccc38ffc3419167bf3bea42100457985894c2f"
+    },
+    {
+      "name": "synonym_region_a",
+      "movieId": 1,
+      "publisherKey": null,
+      "format": "Blu-ray",
+      "packaging": "Standard",
+      "releaseDate": "2019",
+      "region": "Region A",
+      "expectedHash": "e3798e85ea6d3c7911e314606c79733b389e2b5de05368d6e25a7d54ace1b8aa"
+    },
+    {
+      "name": "synonym_region_a_alt",
+      "movieId": 1,
+      "publisherKey": null,
+      "format": "Blu-ray",
+      "packaging": "Standard",
+      "releaseDate": "2019",
+      "region": "A",
+      "expectedHash": "e3798e85ea6d3c7911e314606c79733b389e2b5de05368d6e25a7d54ace1b8aa"
+    },
+    {
+      "name": "synonym_region_lowercase",
+      "movieId": 1,
+      "publisherKey": null,
+      "format": "Blu-ray",
+      "packaging": "Standard",
+      "releaseDate": "2019",
+      "region": "region a",
+      "expectedHash": "e3798e85ea6d3c7911e314606c79733b389e2b5de05368d6e25a7d54ace1b8aa"
+    },
+    {
+      "name": "synonym_packaging_steelbook",
+      "movieId": 1,
+      "publisherKey": null,
+      "format": "Blu-ray",
+      "packaging": "Steel Book",
+      "releaseDate": "2019",
+      "region": "A",
+      "expectedHash": "518a96a5478e0e2fe9f31123b0b25feb5bc0ad4e143b7f35923d4a4df6b5afd7"
+    },
+    {
+      "name": "synonym_packaging_steelbook_alt",
+      "movieId": 1,
+      "publisherKey": null,
+      "format": "Blu-ray",
+      "packaging": "steelbook",
+      "releaseDate": "2019",
+      "region": "A",
+      "expectedHash": "518a96a5478e0e2fe9f31123b0b25feb5bc0ad4e143b7f35923d4a4df6b5afd7"
+    },
+    {
+      "name": "packaging_keep_case",
+      "movieId": 2,
+      "publisherKey": null,
+      "format": "Blu-ray",
+      "packaging": "Keep Case (Slim)",
+      "releaseDate": "2021-01-01",
+      "region": "B",
+      "expectedHash": "ef1039cb899d528bac2a859339a15e2181a5f732cb783fcd47239fe14f6dffdc"
+    }
+  ],
+  "normalization": {
+    "region": [
+      { "input": "Region A", "expected": "A" },
+      { "input": "A", "expected": "A" },
+      { "input": "region a", "expected": "A" },
+      { "input": "USA", "expected": "A" },
+      { "input": "United States", "expected": "A" },
+      { "input": "Region Free", "expected": "ABC" },
+      { "input": "A/B/C", "expected": "ABC" },
+      { "input": "", "expected": "" },
+      { "input": null, "expected": "" },
+      { "input": "Unknown", "expected": "unknown" },
+      { "input": "All Regions", "expected": "all regions" }
+    ],
+    "packaging": [
+      { "input": "Steelbook", "expected": "steelbook" },
+      { "input": "Steel Book", "expected": "steelbook" },
+      { "input": "steel-book", "expected": "steelbook" },
+      { "input": "Keep Case (Slim)", "expected": "standard" },
+      { "input": "Slip Case", "expected": "slip" }
+    ],
+    "releaseDate": [
+      { "input": "2020", "expected": "2020" },
+      { "input": "2020-01-01", "expected": "2020" },
+      { "input": "2020-12-31", "expected": "2020" },
+      { "input": "2020-05", "expected": "2020" },
+      { "input": "", "expected": "" },
+      { "input": null, "expected": "" }
+    ]
+  }
+}

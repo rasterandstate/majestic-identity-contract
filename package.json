@@ -1,0 +1,21 @@
+{
+  "name": "majestic-identity-contract",
+  "version": "1.0.0",
+  "description": "Deterministic identity logic for Majestic: edition hash, region/packaging normalization, fingerprint policy",
+  "type": "module",
+  "main": "src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./editionHash": "./src/editionHash.ts",
+    "./normalization": "./src/normalization.ts",
+    "./fingerprintPolicy": "./src/fingerprintPolicy.ts"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "vitest": "^2.0.0"
+  }
+}
