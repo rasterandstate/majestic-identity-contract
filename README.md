@@ -196,6 +196,37 @@ None. This is a leaf contract package.
 
 ---
 
+## Roadmap
+
+1. **Identity v1 stabilization**
+   - Continued CI enforcement
+   - No behavior changes without version bump
+
+2. **Test vector expansion**
+   - Additional region and packaging edge cases
+   - Community-submitted edge cases
+   - Regression coverage growth
+
+3. **Future identity_v2 considerations (non-committal)**
+   - Decoupling from internal movieId
+   - Portable cross-library identity
+   - Migration tooling requirements
+   - Explicit version coexistence strategy
+
+4. **Fingerprint policy evolution (versioned only)**
+   - Algorithm upgrades (e.g. sha3/blake3)
+   - Head/tail window size adjustments
+   - Version-tagged migration path
+
+5. **Governance model**
+   - Breaking changes require:
+     - version bump
+     - migration documentation
+     - updated test vectors
+   - Additive normalization rules allowed only if backward compatible
+
+---
+
 ## Release Checklist
 
 Before cutting a release:
