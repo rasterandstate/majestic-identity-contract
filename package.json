@@ -4,6 +4,7 @@
   "description": "Deterministic identity logic for Majestic: edition hash, region/packaging normalization, fingerprint policy",
   "type": "module",
   "main": "src/index.ts",
+  "packageManager": "pnpm@10.30.3",
   "exports": {
     ".": "./src/index.ts",
     "./editionHash": "./src/editionHash.ts",
