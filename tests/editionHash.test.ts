@@ -56,6 +56,53 @@ describe('editionHash', () => {
     expect(hash).toMatch(/^[a-f0-9]{64}$/);
   });
 
+  it('throws for invalid movieId — NaN', () => {
+    expect(() =>
+      computeEditionHash(NaN, 'criterion', 'Blu-ray', 'Steelbook', '2020-05-15', 'A')
+    ).toThrow(TypeError);
+  });
+
+  it('throws for invalid movieId — Infinity', () => {
+    expect(() =>
+      computeEditionHash(Infinity, 'criterion', 'Blu-ray', 'Steelbook', '2020-05-15', 'A')
+    ).toThrow(TypeError);
+  });
+
+  it('throws for invalid movieId — non-integer', () => {
+    expect(() =>
+      computeEditionHash(1.5, 'criterion', 'Blu-ray', 'Steelbook', '2020-05-15', 'A')
+    ).toThrow(TypeError);
+  });
+
+  it('throws for invalid movieId — negative', () => {
+    expect(() =>
+      computeEditionHash(-1, 'criterion', 'Blu-ray', 'Steelbook', '2020-05-15', 'A')
+    ).toThrow(TypeError);
+  });
+
+  it('accepts movieId 0', () => {
+    const hash = computeEditionHash(0, null, 'Blu-ray', null, '2020', 'A');
+    expect(hash).toMatch(/^[a-f0-9]{64}$/);
+  });
+
+  it('accepts large movieId', () => {
+    const hash = computeEditionHash(2 ** 31 - 1, null, 'Blu-ray', null, '2020', 'A');
+    expect(hash).toMatch(/^[a-f0-9]{64}$/);
+  });
+
+  it('throws for string exceeding max length', () => {
+    const longString = 'x'.repeat(4097);
+    expect(() =>
+      computeEditionHash(1, longString, 'Blu-ray', 'Steelbook', '2020-05-15', 'A')
+    ).toThrow(RangeError);
+  });
+
+  it('accepts string at max length', () => {
+    const maxString = 'x'.repeat(4096);
+    const hash = computeEditionHash(1, maxString, 'Blu-ray', 'Steelbook', '2020-05-15', 'A');
+    expect(hash).toMatch(/^[a-f0-9]{64}$/);
+  });
+
   it('release date collapse — 2020, 2020-01-01, 2020-12-31 produce same hash', () => {
     const base = { movieId: 1, publisherKey: null, format: 'Blu-ray', packaging: null, region: 'A' };
     const h1 = computeEditionHash(base.movieId, base.publisherKey, base.format, base.packaging, '2020', base.region);

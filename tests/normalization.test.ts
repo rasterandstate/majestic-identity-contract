@@ -6,6 +6,7 @@ import {
   normalizeRegionForHash,
   normalizePackagingForHash,
   normalizeReleaseDateForHash,
+  normalizeFormatForEditionHash,
   getEditionRegionSummary,
 } from '../src/normalization.js';
 
@@ -33,6 +34,16 @@ describe('normalization', () => {
     it('returns "none" for "none" (no-disc stable value)', () => {
       expect(normalizeRegionForHash('none')).toBe('none');
     });
+  });
+
+  describe('normalizeFormatForEditionHash', () => {
+    const formatVectors = (testVectors.normalization as { format?: Array<{ input: string | null; expected: string }> })
+      .format ?? [];
+    for (const vec of formatVectors) {
+      it(`"${vec.input}" → "${vec.expected}"`, () => {
+        expect(normalizeFormatForEditionHash(vec.input)).toBe(vec.expected);
+      });
+    }
   });
 
   describe('normalizeReleaseDateForHash', () => {

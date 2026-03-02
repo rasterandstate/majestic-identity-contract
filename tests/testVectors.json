@@ -119,6 +119,18 @@
       { "input": "2020-05", "expected": "2020" },
       { "input": "", "expected": "" },
       { "input": null, "expected": "" }
+    ],
+    "format": [
+      { "input": "4K UHD", "expected": "4k" },
+      { "input": "2160p", "expected": "4k" },
+      { "input": "Blu-ray", "expected": "bluray" },
+      { "input": "bluray", "expected": "bluray" },
+      { "input": "BD", "expected": "bluray" },
+      { "input": "DVD", "expected": "dvd" },
+      { "input": "HD DVD", "expected": "dvd" },
+      { "input": "Laserdisc", "expected": "laserdisc" },
+      { "input": "", "expected": "" },
+      { "input": null, "expected": "" }
     ]
   }
 }
